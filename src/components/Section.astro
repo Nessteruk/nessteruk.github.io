@@ -6,12 +6,13 @@ interface Props {
   theme: Theme;
   label: string;
   active?: boolean;
+  reveal?: 'default' | 'subtle';
 }
 
-const { id, theme, label, active = false } = Astro.props;
+const { id, theme, label, active = false, reveal = 'default' } = Astro.props;
 ---
 
-<section class:list={['section', { 'is-active': active }]} id={id} data-section data-theme={theme} aria-label={label}>
+<section class:list={['section', { 'is-active': active }]} id={id} data-section data-theme={theme} data-reveal-style={reveal} aria-label={label}>
   <div class="section__inner">
     <slot />
   </div>

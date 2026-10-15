@@ -21,7 +21,7 @@
 - Accueil et Contact : tous les textes ont la même profondeur de parallaxe pour ne jamais se chevaucher ; seule l'illustration a un décalage plus fort.
 - Carrousel mobile : un swipe horizontal bloque le changement de section le temps du geste.
 - Survol des boutons : balayage du fond de gauche à droite, rétraction inverse en sortie.
-- Les éléments marqués `data-reveal="1|2|3"` apparaissent avec un décalage proportionnel à leur profondeur.
+- Les éléments marqués `data-reveal="1|2|3"` apparaissent avec un décalage proportionnel à leur profondeur (90 px par niveau). L'accueil utilise une variante discrète (`reveal="subtle"` sur la section : 20 px par niveau, power3.out sur 1,1 s).
 - Si le contenu d'une section dépasse la hauteur de l'écran (petits téléphones), la section défile d'abord en interne avant de passer à la suivante.
 - L'URL reflète la section active (`#skills`, `#work`…) : un lien direct ouvre la bonne section.
 - `prefers-reduced-motion` : changements de section instantanés, pas d'effet machine à écrire.

@@ -12,6 +12,10 @@ const SHEET_OFFSET = 30;
 const COOLDOWN = 0.35;
 const INNER_SCROLL_GRACE = 500;
 const TYPING_SPEED = 0.045;
+const REVEALS = {
+  default: { shift: 90, duration: 1.3, ease: 'expo.out', stagger: 0.07 },
+  subtle: { shift: 20, duration: 1.1, ease: 'power3.out', stagger: 0.08 },
+};
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -115,15 +119,16 @@ export function initFullpage() {
       tl.add(typeIntro(intro));
     }
 
+    const style = section.dataset.revealStyle === 'subtle' ? REVEALS.subtle : REVEALS.default;
     tl.fromTo(
       items,
-      { opacity: 0, y: (_: number, el: Element) => direction * depth(el) * 90 },
+      { opacity: 0, y: (_: number, el: Element) => direction * depth(el) * style.shift },
       {
         opacity: 1,
         y: 0,
-        duration: 1.3,
-        ease: 'expo.out',
-        stagger: 0.07,
+        duration: style.duration,
+        ease: style.ease,
+        stagger: style.stagger,
         clearProps: 'transform',
       },
       willType ? '+=0.1' : 0,
