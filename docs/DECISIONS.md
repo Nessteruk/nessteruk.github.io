@@ -49,9 +49,10 @@
 - Le curseur de saisie est positionné hors du flux, juste après le surlignage : il n'élargit jamais la barre jaune.
 - Quand le rôle ou l'intro sont vides pendant la saisie, ils contiennent une espace de largeur nulle : la ligne garde sa ligne de base et ne saute pas verticalement.
 
-## Effet 3D à la souris
+## Parallaxe à la souris
+- Effet 2D uniquement (l'inclinaison 3D a été essayée puis abandonnée).
 - Desktop avec souris uniquement (`hover: hover` et `pointer: fine`, ≥ 1100 px), désactivé si `prefers-reduced-motion`.
-- La couche `[data-tilt]` de chaque section et le décor latéral reçoivent la même transformation (perspective 1800 px, décalage de 10 px max, inclinaison de 2° max) : texte tapé, contenu et décorations bougent comme un seul bloc ; header et fond restent fixes.
+- La couche `[data-tilt]` de chaque section et le décor latéral se décalent ensemble vers la souris (10 px max) : texte tapé, contenu et décorations bougent comme un seul bloc ; header et fond restent fixes.
 - L'effet n'est jamais appliqué aux éléments animés par GSAP : pendant une animation, GSAP réécrit la propriété `translate` des éléments qu'il anime, ce qui figeait l'effet. Il continue donc de fonctionner pendant les transitions, la saisie et les apparitions.
 - Parallaxe légère, uniquement sur des éléments non animés (`data-tilt-depth`) : l'illustration +0,4 et les grands numéros de Skills −0,3, par rapport au bloc.
 - Suivi amorti (lissage 0,06 par image) et retour au neutre quand la souris quitte la fenêtre. La boucle d'animation s'arrête une fois l'effet au repos.

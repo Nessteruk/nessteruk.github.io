@@ -1,6 +1,4 @@
-const MAX_TILT = 2;
 const MAX_SHIFT = 10;
-const PERSPECTIVE = 1800;
 const SMOOTHING = 0.06;
 const REST_THRESHOLD = 0.0005;
 
@@ -19,7 +17,7 @@ export function initTilt() {
   function apply(layer: HTMLElement, x: number, y: number) {
     const shiftX = x * MAX_SHIFT;
     const shiftY = y * MAX_SHIFT;
-    layer.style.transform = `perspective(${PERSPECTIVE}px) translate3d(${shiftX.toFixed(2)}px, ${shiftY.toFixed(2)}px, 0) rotateX(${(-y * MAX_TILT).toFixed(3)}deg) rotateY(${(x * MAX_TILT).toFixed(3)}deg)`;
+    layer.style.transform = `translate3d(${shiftX.toFixed(2)}px, ${shiftY.toFixed(2)}px, 0)`;
     layer.style.setProperty('--tilt-x', `${shiftX.toFixed(2)}px`);
     layer.style.setProperty('--tilt-y', `${shiftY.toFixed(2)}px`);
   }
