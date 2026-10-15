@@ -48,6 +48,7 @@ const { title, body, number, mobile = true } = Astro.props;
 
   @media (min-width: 1100px) {
     .text-card {
+      position: relative;
       gap: 0;
       width: max-content;
     }
@@ -57,8 +58,10 @@ const { title, body, number, mobile = true } = Astro.props;
     }
 
     .text-card__number {
+      position: absolute;
+      bottom: calc(100% - 52 * var(--u));
+      left: 0;
       display: block;
-      margin-bottom: calc(-52 * var(--u));
       font-size: calc(200 * var(--u));
       font-weight: 900;
       line-height: 0.8082;
