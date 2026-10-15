@@ -74,14 +74,14 @@ export const projects = [
     title: 'Endurance Motorsport Series',
     image: projectEndurance,
     alt: 'In-game racing interface of an endurance prototype on track, shown on a monitor in a race team garage',
-    text: 'A racing simulation game built around endurance racing and the 24 Hours of Le Mans. Coming soon to PS5, Xbox and PC.',
+    text: 'A racing simulation game built around endurance racing and the 24 Hours of Le Mans.',
     href: '',
   },
   {
     title: 'WRC Generations',
     image: projectWrc,
     alt: 'Career mode team headquarters screen of WRC Generations, shown on a TV in a living room with a sim racing cockpit',
-    text: 'The official game of the World Rally Championship. Available on PS5, Xbox, PC and Switch.',
+    text: 'The official game of the World Rally Championship.',
     href: 'https://www.behance.net/gallery/193701395/WRC-Generations-User-Interface',
   },
   {
