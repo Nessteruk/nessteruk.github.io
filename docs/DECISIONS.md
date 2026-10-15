@@ -11,7 +11,7 @@
 - En dessous de 1100 px, c'est la maquette mobile qui s'applique.
 
 ## Illustrations
-- L'illustration de l'accueil a exactement le même placement que celle de Contact (bas à −153, droite à −164, en unités de la maquette 1920), à la demande de Ness ; la maquette plaçait celle de l'accueil 12 px plus bas.
+- L'illustration de l'accueil a exactement le même placement que celle de Contact (bas à −153, droite à −164, en unités de la maquette 1920), choix confirmé par Ness après correction du bug de transition ; la maquette plaçait celle de l'accueil 12 px plus bas.
 
 ## Décor latéral
 - Le décor en haut à droite est placé sous le header avec un écart d'au moins 20 px (20 px en 1920, comme la maquette) : sur les petits écrans, le header garde une hauteur minimale de 56 px et le décor ne le touche plus.
