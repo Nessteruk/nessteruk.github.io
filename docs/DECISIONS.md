@@ -25,7 +25,7 @@
 ## Défilement
 - Défilement forcé section par section (molette, swipe, clavier, liens du menu). La nouvelle section glisse par-dessus l'ancienne en 0,6 s (power3.inOut) ; l'ancienne recule de 30 % (parallaxe).
 - La section qui glisse porte une ombre portée uniquement quand les deux sections ont des fonds de couleurs différentes (pas entre Skills et More, toutes deux jaunes).
-- Le header change de couleur 0,33 s après le début d'une transition vers le bas (0,15 s plus tôt qu'au départ, pour suivre l'arrivée du nouveau fond sous le header) et 0,12 s après le début d'une transition vers le haut.
+- En descendant, le header change de couleur au moment calculé où le haut de la nouvelle section atteint le bas du header (selon la hauteur de l'écran et la courbe de la transition) ; son fondu de 0,3 s est centré sur ce moment. Desktop et mobile restent ainsi synchronisés. En remontant, il change 0,12 s après le début, le fond précédent étant révélé tout de suite.
 - Le header a un fond opaque (couleur du thème) pour que le contenu en transition ne passe jamais visuellement dessous.
 - Accueil et Contact : tous les textes ont la même profondeur de parallaxe pour ne jamais se chevaucher ; seule l'illustration a un décalage plus fort.
 - Carrousel mobile : un swipe horizontal bloque le changement de section le temps du geste.
