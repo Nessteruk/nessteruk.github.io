@@ -16,7 +16,11 @@
 - Survol du bouton « Download CV » sur fond sombre : la maquette prévoyait un fond bleu nuit (invisible sur la section Work) ; remplacé par un fond jaune.
 
 ## Défilement
-- Défilement forcé section par section (molette, swipe, clavier, liens du menu). La nouvelle section glisse par-dessus l'ancienne ; l'ancienne recule de 30 % (parallaxe).
+- Défilement forcé section par section (molette, swipe, clavier, liens du menu). La nouvelle section glisse par-dessus l'ancienne en 0,8 s (power3.inOut) ; l'ancienne recule de 30 % (parallaxe).
+- Le header a un fond opaque (couleur du thème) pour que le contenu en transition ne passe jamais visuellement dessous.
+- Accueil et Contact : tous les textes ont la même profondeur de parallaxe pour ne jamais se chevaucher ; seule l'illustration a un décalage plus fort.
+- Carrousel mobile : un swipe horizontal bloque le changement de section le temps du geste.
+- Survol des boutons : balayage du fond de gauche à droite, rétraction inverse en sortie.
 - Les éléments marqués `data-reveal="1|2|3"` apparaissent avec un décalage proportionnel à leur profondeur.
 - Si le contenu d'une section dépasse la hauteur de l'écran (petits téléphones), la section défile d'abord en interne avant de passer à la suivante.
 - L'URL reflète la section active (`#skills`, `#work`…) : un lien direct ouvre la bonne section.
