@@ -9,6 +9,8 @@ export const links = {
 
 export type Theme = 'light' | 'accent' | 'dark';
 
+export const roles = ['UI/UX Designer', 'UI Artist', 'Product Designer', 'Graphic Designer'];
+
 export const nav = [
   { label: 'Home', target: 'home', group: ['home'] },
   { label: 'Skills', target: 'skills', group: ['skills', 'more'] },

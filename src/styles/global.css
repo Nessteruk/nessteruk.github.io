@@ -114,6 +114,33 @@ ol {
   white-space: nowrap;
 }
 
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: -0.15em;
+  background: currentColor;
+  animation: caret-blink 1.05s steps(1) infinite;
+}
+
+.is-typing .caret {
+  animation: none;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 1100px) {
+  .caret {
+    width: max(2px, calc(3 * var(--u)));
+    margin-left: calc(4 * var(--u));
+  }
+}
+
 .section-stack {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { Observer } from 'gsap/Observer';
+import { typeIntro } from './intro';
 
 gsap.registerPlugin(Observer);
 
@@ -92,19 +93,26 @@ export function initFullpage() {
 
     const items = Array.from(section.querySelectorAll<HTMLElement>('[data-reveal]'));
     const speech = section.querySelector<HTMLElement>('[data-speech]');
+    const intro = section.querySelector<HTMLElement>('[data-intro]');
+    const willTypeIntro = !!intro && intro.dataset.typed !== 'true';
 
     if (reduceMotion.matches) {
       gsap.set(items, { clearProps: 'opacity,transform' });
+      if (willTypeIntro && intro) typeIntro(intro);
       return;
     }
 
-    const willType = !!speech && speech.dataset.typed !== 'true';
+    const willTypeSpeech = !!speech && speech.dataset.typed !== 'true';
+    const willType = willTypeSpeech || willTypeIntro;
     const tl = gsap.timeline({ delay });
 
     gsap.set(items, { opacity: 0 });
-    if (willType && speech) {
+    if (willTypeSpeech && speech) {
       speech.querySelector('[data-speech-typed]')!.textContent = '';
       tl.add(typeSpeech(speech));
+    }
+    if (willTypeIntro && intro) {
+      tl.add(typeIntro(intro));
     }
 
     tl.fromTo(

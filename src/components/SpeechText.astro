@@ -10,7 +10,7 @@ const { text } = Astro.props;
   <span class="visually-hidden">{text}</span>
   <span class="speech__box" aria-hidden="true">
     <span class="speech__ghost">{text}</span>
-    <span class="speech__line"><span data-speech-typed>{text}</span><span class="speech__caret"></span></span>
+    <span class="speech__line"><span data-speech-typed>{text}</span><span class="caret"></span></span>
   </span>
 </p>
 
@@ -37,26 +37,6 @@ const { text } = Astro.props;
     visibility: hidden;
   }
 
-  .speech__caret {
-    display: inline-block;
-    width: 2px;
-    height: 1.05em;
-    margin-left: 3px;
-    vertical-align: -0.15em;
-    background: currentColor;
-    animation: caret-blink 1.05s steps(1) infinite;
-  }
-
-  :global(.is-typing) .speech__caret {
-    animation: none;
-  }
-
-  @keyframes caret-blink {
-    50% {
-      opacity: 0;
-    }
-  }
-
   @media (min-width: 1100px) {
     .speech {
       width: auto;
@@ -64,11 +44,6 @@ const { text } = Astro.props;
       font-size: calc(40 * var(--u));
       line-height: 0.978;
       white-space: nowrap;
-    }
-
-    .speech__caret {
-      width: max(2px, calc(3 * var(--u)));
-      margin-left: calc(4 * var(--u));
     }
   }
 </style>

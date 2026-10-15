@@ -3,6 +3,9 @@ import { Image } from 'astro:assets';
 import Section from '../Section.astro';
 import HighlightText from '../HighlightText.astro';
 import illustration from '../../assets/illustration.png';
+import { roles } from '../../data/content';
+
+const lead = 'Hey ! I’m a';
 ---
 
 <Section id="home" theme="light" label="Introduction" active>
@@ -11,9 +14,12 @@ import illustration from '../../assets/illustration.png';
       <Image src={illustration} alt="Illustrated portrait of Lucas Bonnard" widths={[460, 919]} sizes="43vw" loading="eager" />
     </div>
     <div class="hero__text">
-      <p class="hero__intro" data-reveal="1">
-        <span>Hey ! I’m a</span>
-        <HighlightText size="lg">UI/UX Designer</HighlightText>
+      <p class="hero__intro" data-intro data-roles={JSON.stringify(roles)}>
+        <span class="visually-hidden">{lead} {roles[0]}</span>
+        <span class="hero__intro-line" aria-hidden="true">
+          <span data-intro-lead data-text={lead}>{lead}</span>
+          <HighlightText size="lg" data-intro-highlight><span data-intro-role>{roles[0]}</span></HighlightText>
+        </span>
       </p>
       <h1 class="hero__name" data-reveal="1"><span>Lucas</span> <span>Bonnard</span></h1>
       <p class="hero__desc" data-reveal="1">
@@ -47,12 +53,16 @@ import illustration from '../../assets/illustration.png';
   }
 
   .hero__intro {
-    display: flex;
-    align-items: center;
-    gap: 6px;
     font-size: clamp(18px, 5.6vw, 22px);
     line-height: 1.3;
     white-space: nowrap;
+  }
+
+  .hero__intro-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
   }
 
   .hero__name {
@@ -108,9 +118,12 @@ import illustration from '../../assets/illustration.png';
     }
 
     .hero__intro {
-      gap: calc(8 * var(--u));
       font-size: calc(40 * var(--u));
-      line-height: 0.978;
+      line-height: 1.21;
+    }
+
+    .hero__intro-line {
+      gap: calc(8 * var(--u));
     }
 
     .hero__name {

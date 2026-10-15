@@ -36,3 +36,11 @@
 - Carrousel : l'image glisse à l'intérieur de son cadre (masquée) ; le texte et le bouton ne sont jamais masqués, ils se déplacent de 30 px avec un fondu (moins que l'espace qui les sépare de l'image, pour ne jamais la chevaucher).
 - Sections avec texte tapé : le contenu est centré verticalement entre le texte tapé et le bas de l'écran (espace identique au-dessus et au-dessous), sur desktop comme sur mobile.
 - Skills (desktop) : les grands numéros sont positionnés en absolu derrière les titres ; ils ne comptent pas dans le centrage vertical du contenu.
+
+## Accueil : titre tapé et rôles
+- « Hey ! I’m a » puis le rôle sont tapés avant le reste de l'accueil (une seule fois, à la première visite), puis le surlignage jaune balaie de gauche à droite.
+- Toutes les 4 s, le rôle change (`roles` dans `src/data/content.ts`) : le surlignage se referme de droite à gauche, le texte est effacé caractère par caractère, le nouveau est tapé, puis le surlignage revient.
+- Le surlignage est piloté par la variable CSS `--hl` (0 = fermé, 1 = ouvert) sur `HighlightText`.
+- « Hey ! I’m a » et le rôle sont alignés sur la ligne de base du texte.
+- Lecteurs d'écran : seule la phrase avec le premier rôle est lue, pour ne pas annoncer chaque changement.
+- `prefers-reduced-motion` : pas de saisie ni de balayage, le rôle change simplement toutes les 4 s.
