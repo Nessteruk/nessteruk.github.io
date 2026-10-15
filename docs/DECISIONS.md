@@ -13,7 +13,7 @@
 ## Thèmes de section
 - Chaque section porte `data-theme` : `light` (fond crème), `accent` (fond jaune), `dark` (fond bleu nuit).
 - L'en-tête et le décor fixes reçoivent le thème de la section active. Les composants utilisent `--fg` / `--bg` / `--mark` / `--on-fg` plutôt que des couleurs en dur : un même bouton s'adapte au fond.
-- Survol du bouton « Download CV » : fond bleu nuit et texte jaune sur les fonds crème et jaune, fond jaune et texte bleu nuit sur le fond sombre (la maquette prévoyait du bleu nuit, invisible sur la section Work).
+- Survol du bouton « Download CV » : fond bleu nuit et texte crème sur fond crème, fond bleu nuit et texte jaune sur fond jaune, fond jaune et texte bleu nuit sur le fond sombre (la maquette prévoyait du bleu nuit, invisible sur la section Work).
 - Les éléments du header prennent leur couleur directement de la variable du thème (et non par héritage) : sinon une transition héritée s'ajoute à la leur et le changement de couleur arrive en retard.
 
 ## Défilement
