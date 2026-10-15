@@ -20,14 +20,14 @@ const Tag = href ? 'a' : 'span';
     line-height: 24px;
     white-space: nowrap;
     color: var(--color-tertiary);
-    background: linear-gradient(var(--color-main), var(--color-main)) left bottom / calc(var(--hl, 1) * 100%) 14px
+    background: linear-gradient(var(--color-main), var(--color-main)) left bottom / calc(var(--hl, 1) * 100%) 12px
       no-repeat;
   }
 
   .highlight--lg {
     font-size: clamp(18px, 5.6vw, 22px);
     line-height: 1.3;
-    background-size: calc(var(--hl, 1) * 100%) 0.72em;
+    background-size: calc(var(--hl, 1) * 100%) 0.6em;
   }
 
   a.highlight {
@@ -43,7 +43,7 @@ const Tag = href ? 'a' : 'span';
       padding: 0 calc(8 * var(--u)) calc(7 * var(--u));
       font-size: calc(40 * var(--u));
       line-height: 1.21;
-      background-size: calc(var(--hl, 1) * 100%) calc(34 * var(--u));
+      background-size: calc(var(--hl, 1) * 100%) calc(28 * var(--u));
     }
   }
 </style>

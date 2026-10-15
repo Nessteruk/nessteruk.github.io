@@ -4,6 +4,7 @@ const TYPE_SPEED = 0.05;
 const DELETE_SPEED = 0.035;
 const SWEEP_DURATION = 0.45;
 const ROLE_HOLD = 4;
+const EMPTY = String.fromCharCode(0x200b);
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -15,7 +16,7 @@ function typeTo(node: Text, from: string, to: string, speed: number) {
     duration: Math.abs(to.length - from.length) * speed,
     ease: 'none',
     onUpdate: () => {
-      node.data = text.slice(0, Math.round(state.chars));
+      node.data = text.slice(0, Math.round(state.chars)) || EMPTY;
     },
   });
 }
@@ -31,8 +32,8 @@ export function typeIntro(root: HTMLElement) {
   const leadText = lead.dataset.text ?? '';
   const caret = document.createElement('span');
   caret.className = 'caret';
-  const leadNode = document.createTextNode('');
-  const roleNode = document.createTextNode('');
+  const leadNode = document.createTextNode(EMPTY);
+  const roleNode = document.createTextNode(EMPTY);
   let current = 0;
 
   if (reduceMotion.matches) {

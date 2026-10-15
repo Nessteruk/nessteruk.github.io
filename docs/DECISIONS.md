@@ -47,4 +47,4 @@
 - Desktop : le texte de l'accueil est centré verticalement dans l'espace sous le header ; l'illustration garde sa position de la maquette.
 - Entre « Hey ! I’m a » et le rôle : exactement une espace (0,28 em). Le surlignage déborde de 0,12 em de chaque côté du texte.
 - Le curseur de saisie est positionné hors du flux, juste après le surlignage : il n'élargit jamais la barre jaune.
-- Surlignage plus haut : 34 px (maquette 1920) sur desktop, 0,72 em en grande taille mobile, 14 px sinon.
+- Quand le rôle ou l'intro sont vides pendant la saisie, ils contiennent une espace de largeur nulle : la ligne garde sa ligne de base et ne saute pas verticalement.
