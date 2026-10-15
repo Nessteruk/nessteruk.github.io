@@ -1,4 +1,5 @@
 import projectPlaceholder from '../assets/project-placeholder.jpg';
+import projectEndurance from '../assets/projects/endurance.webp';
 
 export const links = {
   email: 'lucasbonnard91@gmail.com',
@@ -68,10 +69,21 @@ export const career = [
 const placeholderText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque condimentum ligula et justo accumsan';
 
-export const projects = Array.from({ length: 6 }, (_, i) => ({
-  title: `Project ${i + 1}`,
+const placeholders = Array.from({ length: 5 }, (_, i) => ({
+  title: `Project ${i + 2}`,
   image: projectPlaceholder,
-  alt: `Project ${i + 1} preview`,
+  alt: `Project ${i + 2} preview`,
   text: placeholderText,
   href: '#',
 }));
+
+export const projects = [
+  {
+    title: 'Endurance racing game',
+    image: projectEndurance,
+    alt: 'In-game racing interface of an endurance prototype on track, shown on a monitor in a race team garage',
+    text: 'A racing simulation game built around endurance racing and the 24 Hours of Le Mans. Coming soon to PS5, Xbox and PC.',
+    href: '#',
+  },
+  ...placeholders,
+];
