@@ -1,6 +1,7 @@
 import projectPlaceholder from '../assets/project-placeholder.jpg';
 import projectEndurance from '../assets/projects/endurance.webp';
 import projectWrc from '../assets/projects/wrc-generations.webp';
+import projectSportunity from '../assets/projects/sportunity.webp';
 
 export const links = {
   email: 'lucasbonnard91@gmail.com',
@@ -70,10 +71,10 @@ export const career = [
 const placeholderText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque condimentum ligula et justo accumsan';
 
-const placeholders = Array.from({ length: 4 }, (_, i) => ({
-  title: `Project ${i + 3}`,
+const placeholders = Array.from({ length: 3 }, (_, i) => ({
+  title: `Project ${i + 4}`,
   image: projectPlaceholder,
-  alt: `Project ${i + 3} preview`,
+  alt: `Project ${i + 4} preview`,
   text: placeholderText,
   href: '#',
 }));
@@ -92,6 +93,13 @@ export const projects = [
     alt: 'Career mode team headquarters screen of WRC Generations, shown on a TV in a living room with a sim racing cockpit',
     text: 'The official game of the World Rally Championship. Available on PS5, Xbox, PC and Switch.',
     href: 'https://www.behance.net/gallery/193701395/WRC-Generations-User-Interface',
+  },
+  {
+    title: 'Sportunity',
+    image: projectSportunity,
+    alt: 'Sportunity landing page with its mobile app preview, shown on a desktop computer at a gym reception desk',
+    text: 'A landing page for a mobile sports app.',
+    href: 'https://www.behance.net/gallery/105327843/Site-vitrine-Sportunity',
   },
   ...placeholders,
 ];
