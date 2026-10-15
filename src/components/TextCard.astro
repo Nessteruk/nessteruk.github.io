@@ -67,6 +67,7 @@ const { title, body, number, mobile = true } = Astro.props;
       line-height: 0.8082;
       color: var(--color-secondary);
       opacity: 0.23;
+      translate: calc(var(--tilt-x, 0px) * -0.6) calc(var(--tilt-y, 0px) * -0.6);
     }
 
     .text-card__title {

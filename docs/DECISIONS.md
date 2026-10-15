@@ -48,3 +48,9 @@
 - Entre « Hey ! I’m a » et le rôle : exactement une espace (0,28 em). Le surlignage déborde de 0,12 em de chaque côté du texte.
 - Le curseur de saisie est positionné hors du flux, juste après le surlignage : il n'élargit jamais la barre jaune.
 - Quand le rôle ou l'intro sont vides pendant la saisie, ils contiennent une espace de largeur nulle : la ligne garde sa ligne de base et ne saute pas verticalement.
+
+## Effet 3D à la souris
+- Desktop avec souris uniquement (`hover: hover` et `pointer: fine`, ≥ 1100 px), désactivé si `prefers-reduced-motion`.
+- Chaque section a une couche `[data-tilt]` qui s'incline vers la souris (2° max) ; le header, le décor et le fond restent fixes.
+- Parallaxe : les éléments `data-reveal` se décalent de 10 px max × leur profondeur (1 ; 1,5 ; 2 pour l'illustration). Les grands numéros de Skills bougent moins que leur titre. Le décalage utilise la propriété CSS `translate`, distincte du `transform` animé par GSAP : aucun conflit avec les apparitions.
+- Suivi amorti (lissage 0,06 par image) et retour au neutre quand la souris quitte la fenêtre. La boucle d'animation s'arrête une fois l'effet au repos.

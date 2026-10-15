@@ -141,6 +141,25 @@ ol {
   }
 }
 
+@media (min-width: 1100px) {
+  [data-tilt] {
+    --tilt-x: 0px;
+    --tilt-y: 0px;
+  }
+
+  [data-tilt] [data-reveal] {
+    translate: calc(var(--tilt-x) * var(--tilt-depth, 1)) calc(var(--tilt-y) * var(--tilt-depth, 1));
+  }
+
+  [data-tilt] [data-reveal='2'] {
+    --tilt-depth: 1.5;
+  }
+
+  [data-tilt] [data-reveal='3'] {
+    --tilt-depth: 2;
+  }
+}
+
 .section-stack {
   display: flex;
   flex-direction: column;
