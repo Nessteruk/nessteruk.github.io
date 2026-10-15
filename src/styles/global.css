@@ -27,6 +27,7 @@
   --on-fg: var(--color-main);
   --cv-bg: var(--color-tertiary);
   --cv-fg: var(--color-secondary);
+  --cursor-mix: #e5c5a2;
 }
 
 [data-theme='accent'] {
@@ -36,6 +37,7 @@
   --on-fg: var(--color-main);
   --cv-bg: var(--color-tertiary);
   --cv-fg: var(--color-main);
+  --cursor-mix: #e58e69;
 }
 
 [data-theme='dark'] {
@@ -45,6 +47,7 @@
   --on-fg: var(--color-tertiary);
   --cv-bg: var(--color-main);
   --cv-fg: var(--color-tertiary);
+  --cursor-mix: #ffec69;
 }
 
 *,
@@ -98,6 +101,11 @@ button {
 ul,
 ol {
   list-style: none;
+}
+
+.has-cursor,
+.has-cursor * {
+  cursor: none !important;
 }
 
 :focus-visible {

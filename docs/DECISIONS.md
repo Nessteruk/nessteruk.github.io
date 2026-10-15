@@ -54,3 +54,10 @@
 ## Clipping desktop
 - Sur desktop, les sections ne défilent jamais en interne (le contenu tient toujours à l'écran grâce à la mise à l'échelle) : `.section__inner` est en `overflow: hidden`, et c'est le bord fixe de la section qui coupe les illustrations qui débordent de l'écran.
 - Un effet de décalage à la souris (inclinaison 3D puis parallaxe 2D) a été testé puis retiré : il surchargeait le site.
+
+## Curseur personnalisé
+- Dessiné en code (CSS) à partir des curseurs Figma 32 × 32 : vectoriel, donc net aussi sur les écrans haute densité (équivalent 64 × 64), sans fichier image.
+- Trois états : `default` (point + cercle de 32 px), `hover` sur les liens et boutons (le cercle se referme à 20 px autour du point), `text` uniquement quand le pointeur est réellement sur du texte (détection du caractère sous la souris, pas de toute la boîte du paragraphe).
+- Couleurs : bleu nuit sur les fonds crème et jaune, jaune sur le fond bleu nuit. Le curseur est en `mix-blend-mode: difference` avec une couleur calculée par thème (`--cursor-mix`) pour donner exactement la couleur voulue sur le fond de la section ; au-dessus d'un élément d'une autre couleur (texte, surlignage, illustration), il passe en négatif et reste visible.
+- Activé seulement avec une souris (`hover: hover` et `pointer: fine`) ; sur écran tactile, rien ne change. Le curseur système est masqué uniquement quand le curseur personnalisé est actif.
+- Position arrondie au pixel pour garder le cercle fin net.

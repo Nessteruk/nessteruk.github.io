@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Deco from '../components/Deco.astro';
+import Cursor from '../components/Cursor.astro';
 import Hero from '../components/sections/Hero.astro';
 import Skills from '../components/sections/Skills.astro';
 import More from '../components/sections/More.astro';
@@ -26,14 +27,17 @@ import Contact from '../components/sections/Contact.astro';
     <Work />
     <Contact />
   </main>
+  <Cursor />
 </Base>
 
 <script>
   import { initFullpage } from '../scripts/fullpage';
   import { initCarousels } from '../scripts/carousel';
   import { initMenu } from '../scripts/menu';
+  import { initCursor } from '../scripts/cursor';
 
   initMenu();
   initCarousels();
   initFullpage();
+  initCursor();
 </script>
