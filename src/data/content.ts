@@ -1,8 +1,8 @@
-import projectPlaceholder from '../assets/project-placeholder.jpg';
 import projectEndurance from '../assets/projects/endurance.webp';
 import projectWrc from '../assets/projects/wrc-generations.webp';
 import projectSportunity from '../assets/projects/sportunity.webp';
 import projectVidz from '../assets/projects/vidz.webp';
+import projectAvdol from '../assets/projects/avdol.webp';
 
 export const links = {
   email: 'lucasbonnard91@gmail.com',
@@ -69,17 +69,6 @@ export const career = [
   { title: 'Art Director at Smash Essonne', desc: 'From 2014 to 2023, Smash Essonne (Association)' },
 ];
 
-const placeholderText =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque condimentum ligula et justo accumsan';
-
-const placeholders = Array.from({ length: 2 }, (_, i) => ({
-  title: `Project ${i + 5}`,
-  image: projectPlaceholder,
-  alt: `Project ${i + 5} preview`,
-  text: placeholderText,
-  href: '#',
-}));
-
 export const projects = [
   {
     title: 'Endurance Motorsport Series',
@@ -109,5 +98,11 @@ export const projects = [
     text: 'A community network for music videos.',
     href: 'https://www.behance.net/gallery/89732155/VIDZ-Application-de-vidos-musicales',
   },
-  ...placeholders,
+  {
+    title: 'Avdol',
+    image: projectAvdol,
+    alt: 'Avdol trekking app splash screen, shown on a smartphone held in the desert at sunset',
+    text: 'A trekking app to share your journey through the White Desert.',
+    href: 'https://www.behance.net/gallery/97280569/AVDOL-Application-de-Trek',
+  },
 ];
