@@ -62,7 +62,24 @@ const lead = 'Hey ! I’m a';
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 6px;
+    gap: 0.28em;
+  }
+
+  .hero__intro-line :global(.highlight) {
+    padding-inline: 0.12em;
+    margin-inline: -0.12em;
+  }
+
+  [data-intro-role] {
+    position: relative;
+  }
+
+  [data-intro-role] :global(.caret) {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 0.12em + 3px);
+    margin-left: 0;
+    translate: 0 -50%;
   }
 
   .hero__name {
@@ -88,9 +105,9 @@ const lead = 'Hey ! I’m a';
 
   @media (min-width: 1100px) {
     .hero {
-      align-items: flex-start;
+      align-items: center;
       height: 100%;
-      padding: calc(248 * var(--u)) 0 0;
+      padding: var(--header-height) 0 0;
       overflow: hidden;
     }
 
@@ -122,9 +139,7 @@ const lead = 'Hey ! I’m a';
       line-height: 1.21;
     }
 
-    .hero__intro-line {
-      gap: calc(8 * var(--u));
-    }
+
 
     .hero__name {
       font-size: calc(200 * var(--u));
