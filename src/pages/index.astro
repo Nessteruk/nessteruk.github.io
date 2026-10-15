@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Deco from '../components/Deco.astro';
+import Hero from '../components/sections/Hero.astro';
+import Skills from '../components/sections/Skills.astro';
+import More from '../components/sections/More.astro';
+import Career from '../components/sections/Career.astro';
+import Work from '../components/sections/Work.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<Base
+  title="Lucas Bonnard — UI/UX Designer"
+  description="Portfolio of Lucas Bonnard, UI/UX designer based in Paris with 5 years of experience in the video game industry and 2 years in product design."
+>
+  <Header />
+  <MobileMenu />
+  <Deco />
+  <main>
+    <Hero />
+    <Skills />
+    <More />
+    <Career />
+    <Work />
+    <Contact />
+  </main>
+</Base>
+
+<script>
+  import { initFullpage } from '../scripts/fullpage';
+  import { initCarousels } from '../scripts/carousel';
+  import { initMenu } from '../scripts/menu';
+
+  initMenu();
+  initCarousels();
+  initFullpage();
+</script>

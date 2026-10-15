@@ -1,0 +1,91 @@
+---
+interface Props {
+  label: string;
+  target: string;
+  group: string[];
+  active?: boolean;
+}
+
+const { label, target, group, active = false } = Astro.props;
+---
+
+<a
+  class="nav-link"
+  href={`#${target}`}
+  data-nav-target={target}
+  data-nav-group={group.join(',')}
+  aria-current={active ? 'true' : undefined}
+>
+  <span class="nav-link__label" data-label={label}>{label}</span>
+</a>
+
+<style>
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 32px;
+    color: var(--fg);
+    isolation: isolate;
+    transition: color 0.4s ease;
+  }
+
+  .nav-link__label {
+    display: inline-grid;
+    padding-inline: 4px;
+  }
+
+  .nav-link__label::after {
+    content: attr(data-label);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    font-weight: 700;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: auto 10px 10px;
+    height: 15px;
+    background: var(--mark);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition:
+      transform 0.45s cubic-bezier(0.65, 0, 0.35, 1),
+      background-color 0.4s ease;
+  }
+
+  .nav-link:hover::before {
+    transform: scaleX(0.35);
+  }
+
+  .nav-link[aria-current='true'] {
+    font-weight: 700;
+  }
+
+  .nav-link[aria-current='true']::before {
+    transform: scaleX(1);
+  }
+
+  @media (min-width: 1100px) {
+    .nav-link {
+      padding: calc(10 * var(--u));
+      font-size: max(15px, calc(20 * var(--u)));
+      line-height: max(24px, calc(32 * var(--u)));
+    }
+
+    .nav-link__label {
+      padding-inline: calc(4 * var(--u));
+    }
+
+    .nav-link::before {
+      inset: auto calc(10 * var(--u)) calc(10 * var(--u));
+      height: max(11px, calc(15 * var(--u)));
+    }
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import type { Theme } from '../data/content';
+
+interface Props {
+  id: string;
+  theme: Theme;
+  label: string;
+  active?: boolean;
+}
+
+const { id, theme, label, active = false } = Astro.props;
+---
+
+<section class:list={['section', { 'is-active': active }]} id={id} data-section data-theme={theme} aria-label={label}>
+  <div class="section__inner">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  .section__inner {
+    position: relative;
+    height: 100%;
+    min-height: 100svh;
+  }
+
+  :global(.js) .section {
+    position: fixed;
+    inset: 0;
+    min-height: 0;
+    visibility: hidden;
+    box-shadow: 0 0 80px rgb(17 47 65 / 0.25);
+  }
+
+  :global(.js) .section.is-active {
+    visibility: visible;
+  }
+
+  :global(.js) .section__inner {
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+
+  :global(.js) .section__inner::-webkit-scrollbar {
+    display: none;
+  }
+</style>

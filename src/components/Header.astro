@@ -1,0 +1,147 @@
+---
+import Linkedin from '../icons/linkedin.svg';
+import Behance from '../icons/behance.svg';
+import NavLink from './NavLink.astro';
+import { links, nav } from '../data/content';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<header class="header" data-theme="light" data-follow-theme>
+  <div class="header__networks">
+    <a class="header__icon" href={links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <Linkedin aria-hidden="true" />
+    </a>
+    <a class="header__icon" href={links.behance} target="_blank" rel="noopener noreferrer" aria-label="Behance">
+      <Behance aria-hidden="true" />
+    </a>
+  </div>
+
+  <button class="header__burger" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
+    <span class="visually-hidden">Open menu</span>
+    <span class="header__burger-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+
+  <nav class="header__nav" aria-label="Main">
+    {nav.map((item, i) => <NavLink {...item} active={i === 0} />)}
+  </nav>
+
+  <a class="header__cv" href={`${base}/${links.cv}`} download>Download CV</a>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    z-index: 20;
+    inset: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 12px 24px 12px 20px;
+    color: var(--fg);
+    border-bottom: var(--stroke-md) solid var(--fg);
+    transition:
+      color 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .header__networks,
+  .header__nav {
+    display: none;
+  }
+
+  .header__burger {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .header__burger-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 20px;
+  }
+
+  .header__burger-lines span {
+    height: 2px;
+    background: currentColor;
+  }
+
+  .header__cv {
+    font-size: 16px;
+    line-height: 28px;
+    padding-inline: 4px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  @media (min-width: 1100px) {
+    .header {
+      padding: 0;
+    }
+
+    .header__burger {
+      display: none;
+    }
+
+    .header__networks {
+      display: flex;
+      align-items: center;
+      gap: calc(32 * var(--u));
+      height: 100%;
+      padding-inline: calc(32 * var(--u));
+    }
+
+    .header__icon {
+      display: grid;
+      place-items: center;
+      width: max(24px, calc(32 * var(--u)));
+      height: max(24px, calc(32 * var(--u)));
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    .header__icon :global(svg) {
+      width: auto;
+      height: max(14px, calc(19.5 * var(--u)));
+    }
+
+    .header__icon:hover {
+      opacity: 0.7;
+      transform: translateY(-2px);
+    }
+
+    .header__nav {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: calc(64 * var(--u));
+      height: 100%;
+    }
+
+    .header__cv {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 calc(32 * var(--u));
+      font-size: max(15px, calc(20 * var(--u)));
+      line-height: max(24px, calc(32 * var(--u)));
+      border-left: var(--stroke-md) solid var(--fg);
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.4s ease;
+    }
+
+    .header__cv:hover {
+      background: var(--cv-bg);
+      color: var(--cv-fg);
+    }
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+interface Props {
+  href?: string;
+}
+
+const { href } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag class="highlight" href={href}><slot /></Tag>
+
+<style>
+  .highlight {
+    display: inline-block;
+    padding: 0 8px 2px;
+    font-size: 18px;
+    line-height: 24px;
+    white-space: nowrap;
+    color: var(--color-tertiary);
+    background: linear-gradient(var(--color-main), var(--color-main)) left bottom / 100% 12px no-repeat;
+  }
+
+  a.highlight {
+    transition: background-size 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  a.highlight:hover {
+    background-size: 100% 100%;
+  }
+
+  @media (min-width: 1100px) {
+    .highlight {
+      padding: 0 calc(8 * var(--u)) calc(7 * var(--u));
+      font-size: calc(40 * var(--u));
+      line-height: 1.21;
+      background-size: 100% calc(28 * var(--u));
+    }
+  }
+</style>

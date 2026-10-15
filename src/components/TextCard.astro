@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  number?: string;
+  mobile?: boolean;
+}
+
+const { title, body, number, mobile = true } = Astro.props;
+---
+
+<article class:list={['text-card', { 'text-card--desktop-only': !mobile }]} data-reveal="1">
+  {number && <span class="text-card__number" aria-hidden="true">{number}</span>}
+  <h3 class="text-card__title">{title}</h3>
+  <p class="text-card__body">{body}</p>
+</article>
+
+<style>
+  .text-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    color: var(--color-tertiary);
+  }
+
+  .text-card--desktop-only,
+  .text-card__number {
+    display: none;
+  }
+
+  .text-card__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.21;
+    text-transform: uppercase;
+  }
+
+  .text-card__body {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  @media (min-width: 1100px) {
+    .text-card {
+      gap: 0;
+      width: max-content;
+    }
+
+    .text-card--desktop-only {
+      display: flex;
+    }
+
+    .text-card__number {
+      display: block;
+      margin-bottom: calc(-52 * var(--u));
+      font-size: calc(200 * var(--u));
+      font-weight: 900;
+      line-height: 0.8082;
+      color: var(--color-secondary);
+      opacity: 0.23;
+    }
+
+    .text-card__title {
+      margin-bottom: calc(12 * var(--u));
+      font-size: calc(64 * var(--u));
+      white-space: nowrap;
+    }
+
+    .text-card__body {
+      width: calc(432 * var(--u));
+      font-size: max(15px, calc(20 * var(--u)));
+      line-height: max(24px, calc(32 * var(--u)));
+    }
+  }
+</style>

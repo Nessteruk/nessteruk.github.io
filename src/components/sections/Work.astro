@@ -1,0 +1,233 @@
+---
+import { Image } from 'astro:assets';
+import Section from '../Section.astro';
+import SpeechText from '../SpeechText.astro';
+import Button from '../Button.astro';
+import ChevronLeft from '../../icons/chevron-left.svg';
+import ChevronRight from '../../icons/chevron-right.svg';
+import { projects } from '../../data/content';
+---
+
+<Section id="work" theme="dark" label="Work">
+  <div class="section-stack">
+    <SpeechText text="Discover my best creations." />
+    <div class="carousel" data-carousel data-reveal="1" role="region" aria-roledescription="carousel" aria-label="Projects">
+      <div class="carousel__row">
+        <button class="carousel__arrow" type="button" data-carousel-prev>
+          <span class="visually-hidden">Previous project</span>
+          <ChevronLeft aria-hidden="true" />
+        </button>
+        <div class="carousel__viewport" data-carousel-viewport>
+          {
+            projects.map((project, i) => (
+              <article
+                class:list={['work-card', { 'is-active': i === 0 }]}
+                data-slide
+                aria-roledescription="slide"
+                aria-label={`${i + 1} of ${projects.length}`}
+                inert={i !== 0}
+              >
+                <div class="work-card__media" data-slide-media>
+                  <Image src={project.image} alt={project.alt} widths={[400, 626, 1252]} sizes="(min-width: 1100px) 33vw, 298px" />
+                </div>
+                <div class="work-card__infos" data-slide-infos>
+                  <p class="work-card__text">{project.text}</p>
+                  <Button href={project.href}>Discover the work</Button>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+        <button class="carousel__arrow" type="button" data-carousel-next>
+          <span class="visually-hidden">Next project</span>
+          <ChevronRight aria-hidden="true" />
+        </button>
+      </div>
+      <div class="carousel__dots">
+        {
+          projects.map((project, i) => (
+            <button class="carousel__dot" type="button" data-carousel-dot aria-current={i === 0 ? 'true' : undefined}>
+              <span class="visually-hidden">Show {project.title}</span>
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    padding-inline: var(--gutter);
+  }
+
+  .carousel__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .carousel__arrow {
+    display: none;
+  }
+
+  .carousel__viewport {
+    display: grid;
+    width: 298px;
+    max-width: 100%;
+    touch-action: pan-y;
+    user-select: none;
+  }
+
+  .work-card {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    visibility: hidden;
+  }
+
+  .work-card.is-active {
+    visibility: inherit;
+  }
+
+  .work-card__media {
+    width: 100%;
+    aspect-ratio: 298 / 206;
+    overflow: hidden;
+  }
+
+  .work-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .work-card__infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .work-card__text {
+    width: 100%;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .carousel__dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .carousel__dot {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border: var(--stroke-md) solid var(--fg);
+    border-radius: 26px;
+    transition:
+      width 0.45s cubic-bezier(0.65, 0, 0.35, 1),
+      background-color 0.45s ease;
+  }
+
+  .carousel__dot::before {
+    content: '';
+    position: absolute;
+    inset: -8px -4px;
+  }
+
+  .carousel__dot:hover {
+    background: color-mix(in srgb, var(--fg) 40%, transparent);
+  }
+
+  .carousel__dot[aria-current='true'] {
+    width: 32px;
+    background: var(--fg);
+  }
+
+  @media (min-width: 1100px) {
+    .carousel {
+      gap: calc(64 * var(--u));
+      width: auto;
+      padding: 0;
+    }
+
+    .carousel__row {
+      gap: calc(64 * var(--u));
+      width: auto;
+    }
+
+    .carousel__arrow {
+      display: grid;
+      place-items: center;
+      width: calc(56 * var(--u));
+      height: calc(56 * var(--u));
+      color: var(--fg);
+      transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .carousel__arrow :global(svg) {
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel__arrow[data-carousel-prev]:hover {
+      transform: translateX(-6px);
+    }
+
+    .carousel__arrow[data-carousel-next]:hover {
+      transform: translateX(6px);
+    }
+
+    .carousel__viewport {
+      width: auto;
+      max-width: none;
+    }
+
+    .work-card {
+      flex-direction: row;
+      gap: calc(64 * var(--u));
+    }
+
+    .work-card__media {
+      width: calc(626 * var(--u));
+      aspect-ratio: 626 / 432;
+    }
+
+    .work-card__infos {
+      align-items: flex-start;
+      gap: calc(32 * var(--u));
+      width: calc(432 * var(--u));
+    }
+
+    .work-card__text {
+      font-size: max(15px, calc(20 * var(--u)));
+      line-height: max(24px, calc(32 * var(--u)));
+    }
+
+    .carousel__dots {
+      gap: calc(20 * var(--u));
+    }
+
+    .carousel__dot {
+      width: max(10px, calc(12 * var(--u)));
+      height: max(10px, calc(12 * var(--u)));
+    }
+
+    .carousel__dot[aria-current='true'] {
+      width: max(26px, calc(32 * var(--u)));
+    }
+  }
+</style>

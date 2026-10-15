@@ -1,0 +1,80 @@
+---
+import NavLink from './NavLink.astro';
+import { nav } from '../data/content';
+---
+
+<div class="menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" data-theme="light" hidden data-menu>
+  <button class="menu__close" type="button" data-menu-close>
+    <span class="visually-hidden">Close menu</span>
+    <span class="menu__cross" aria-hidden="true"><span></span><span></span></span>
+  </button>
+  <nav class="menu__nav" aria-label="Mobile">
+    {nav.map((item, i) => <span class="menu__item" data-menu-item><NavLink {...item} active={i === 0} /></span>)}
+  </nav>
+</div>
+
+<style>
+  .menu {
+    position: fixed;
+    z-index: 30;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 0;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  .menu[hidden] {
+    display: none;
+  }
+
+  .menu__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 46px;
+  }
+
+  .menu__item {
+    display: block;
+  }
+
+  .menu__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .menu__cross {
+    position: relative;
+    width: 20px;
+    height: 14px;
+  }
+
+  .menu__cross span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    translate: -50% -50%;
+    rotate: 45deg;
+  }
+
+  .menu__cross span + span {
+    rotate: -45deg;
+  }
+
+  @media (min-width: 1100px) {
+    .menu {
+      display: none !important;
+    }
+  }
+</style>

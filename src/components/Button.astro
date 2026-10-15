@@ -1,0 +1,63 @@
+---
+import ArrowUpRight from '../icons/arrow-up-right.svg';
+
+interface Props {
+  href: string;
+  external?: boolean;
+}
+
+const { href, external = false } = Astro.props;
+---
+
+<a class="btn" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+  <span><slot /></span>
+  <ArrowUpRight class="btn__icon" aria-hidden="true" />
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 28px;
+    white-space: nowrap;
+    color: var(--fg);
+    border: var(--stroke-md) solid var(--fg);
+    border-radius: 52px;
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
+  }
+
+  .btn__icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .btn:hover {
+    background: var(--fg);
+    color: var(--on-fg);
+  }
+
+  .btn:hover .btn__icon {
+    transform: translate(2px, -2px);
+  }
+
+  @media (min-width: 1100px) {
+    .btn {
+      gap: calc(10 * var(--u));
+      padding: calc(10 * var(--u)) calc(59 * var(--u));
+      font-size: max(15px, calc(20 * var(--u)));
+      line-height: max(24px, calc(32 * var(--u)));
+    }
+
+    .btn__icon {
+      width: max(11px, calc(14 * var(--u)));
+      height: max(11px, calc(14 * var(--u)));
+    }
+  }
+</style>

@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import Section from '../Section.astro';
+import HighlightText from '../HighlightText.astro';
+import illustration from '../../assets/illustration.png';
+---
+
+<Section id="home" theme="light" label="Introduction" active>
+  <div class="hero">
+    <div class="hero__picture" data-reveal="3">
+      <Image src={illustration} alt="Illustrated portrait of Lucas Bonnard" widths={[460, 919]} sizes="43vw" loading="eager" />
+    </div>
+    <div class="hero__text">
+      <p class="hero__intro" data-reveal="1">
+        <span>Hey ! I’m a</span>
+        <HighlightText>UI/UX Designer</HighlightText>
+      </p>
+      <h1 class="hero__name" data-reveal="2"><span>Lucas</span> <span>Bonnard</span></h1>
+      <p class="hero__desc" data-reveal="1">
+        Based in Paris, I have 5 years of experience in the video game industry and 2 years in product design.
+      </p>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: calc(var(--header-height) + 40px) var(--gutter) 40px;
+  }
+
+  .hero__picture {
+    display: none;
+  }
+
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 354px;
+    padding-inline: 32px;
+    box-sizing: content-box;
+    text-align: center;
+  }
+
+  .hero__intro {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 18px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+
+  .hero__name {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+  }
+
+  .hero__name span {
+    display: block;
+  }
+
+  .hero__desc {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  @media (min-width: 1100px) {
+    .hero {
+      align-items: flex-start;
+      height: 100%;
+      padding: calc(248 * var(--u)) 0 0;
+      overflow: hidden;
+    }
+
+    .hero__picture {
+      position: absolute;
+      right: calc(-164 * var(--u));
+      bottom: calc(-165 * var(--u));
+      display: block;
+      width: calc(818 * var(--u));
+      height: calc(1136 * var(--u));
+    }
+
+    .hero__picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+    }
+
+    .hero__text {
+      position: relative;
+      max-width: none;
+      padding: 0;
+      gap: calc(20 * var(--u));
+    }
+
+    .hero__intro {
+      gap: calc(8 * var(--u));
+      font-size: calc(40 * var(--u));
+      line-height: 0.978;
+    }
+
+    .hero__name {
+      font-size: calc(200 * var(--u));
+      line-height: 0.8082;
+      letter-spacing: 0;
+    }
+
+    .hero__desc {
+      width: calc(432 * var(--u));
+      font-size: max(15px, calc(20 * var(--u)));
+      line-height: max(24px, calc(32 * var(--u)));
+      text-align: left;
+    }
+  }
+</style>

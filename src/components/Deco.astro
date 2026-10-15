@@ -1,0 +1,51 @@
+<div class="deco" data-theme="light" data-follow-theme aria-hidden="true">
+  <span class="deco__item deco__item--right"><span>Portfolio Lucas Bonnard</span><span class="deco__line"></span></span>
+  <span class="deco__item deco__item--left"><span>Portfolio Lucas Bonnard</span><span class="deco__line"></span></span>
+</div>
+
+<style>
+  .deco {
+    display: none;
+  }
+
+  @media (min-width: 1100px) {
+    .deco {
+      position: fixed;
+      z-index: 15;
+      inset: 0;
+      display: block;
+      pointer-events: none;
+      color: var(--fg);
+      transition: color 0.4s ease;
+    }
+
+    .deco__item {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: calc(10 * var(--u));
+      font-size: calc(16 * var(--u));
+      letter-spacing: calc(8 * var(--u));
+      text-transform: uppercase;
+      white-space: nowrap;
+      writing-mode: vertical-rl;
+    }
+
+    .deco__item--right {
+      top: calc(100 * var(--u));
+      right: calc(21 * var(--u));
+    }
+
+    .deco__item--left {
+      bottom: calc(21 * var(--u));
+      left: calc(20 * var(--u));
+      rotate: 180deg;
+    }
+
+    .deco__line {
+      width: var(--stroke-md);
+      height: calc(181 * var(--u));
+      background: currentColor;
+    }
+  }
+</style>
