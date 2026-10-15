@@ -90,7 +90,7 @@ export const projects = [
     title: 'WRC Generations',
     image: projectWrc,
     alt: 'Career mode team headquarters screen of WRC Generations, shown on a TV in a living room with a sim racing cockpit',
-    text: 'Official game for the World Rally Championship. Available for PS5, Xbox, PC and Switch.',
+    text: 'The official game of the World Rally Championship. Available on PS5, Xbox, PC and Switch.',
     href: 'https://www.behance.net/gallery/193701395/WRC-Generations-User-Interface',
   },
   ...placeholders,
