@@ -7,7 +7,6 @@ gsap.registerPlugin(Observer);
 type Direction = 1 | -1;
 
 const SHEET_DURATION = 0.6;
-const SHEET_DURATION_BACK = 0.4;
 const SHEET_EASE = 'power3.inOut';
 const SHEET_OFFSET = 30;
 const COOLDOWN = 0.35;
@@ -177,9 +176,8 @@ export function initFullpage() {
       return;
     }
 
-    const duration = direction === 1 ? SHEET_DURATION : SHEET_DURATION_BACK;
     const tl = gsap.timeline({
-      defaults: { duration, ease: SHEET_EASE },
+      defaults: { duration: SHEET_DURATION, ease: SHEET_EASE },
       onComplete: finish,
     });
 
@@ -193,8 +191,8 @@ export function initFullpage() {
       tl.to(from, { yPercent: 100 }).to(to, { yPercent: 0 }, 0);
     }
 
-    tl.call(() => applyTheme(to), undefined, duration * (direction === 1 ? 0.8 : 0.2));
-    reveal(to, direction, duration * 0.35);
+    tl.call(() => applyTheme(to), undefined, SHEET_DURATION * (direction === 1 ? 0.8 : 0.2));
+    reveal(to, direction, SHEET_DURATION * 0.35);
   }
 
   function step(direction: Direction) {
