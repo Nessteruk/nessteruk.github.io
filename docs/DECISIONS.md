@@ -27,5 +27,5 @@
 - Le texte complet est présent dans le HTML (lecteurs d'écran, référencement) ; seule sa copie visuelle est animée.
 
 ## Contenus
-- Section « And there is more » : la carte PRINT n'apparaît pas sur mobile, comme dans la maquette.
+- Sur mobile, la carte PRINT et les numéros 01-02-03 sont volontairement absents (confirmé par Ness).
 - Les projets du carrousel sont des contenus provisoires (`src/data/content.ts`).

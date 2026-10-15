@@ -2,8 +2,8 @@ import projectPlaceholder from '../assets/project-placeholder.jpg';
 
 export const links = {
   email: 'lucasbonnard91@gmail.com',
-  linkedin: '#',
-  behance: '#',
+  linkedin: 'https://www.linkedin.com/in/lucas-bonnard-705953131/',
+  behance: 'https://www.behance.net/lucasbonnard',
   cv: 'cv.pdf',
 };
 
