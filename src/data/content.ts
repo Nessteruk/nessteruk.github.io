@@ -1,5 +1,6 @@
 import projectPlaceholder from '../assets/project-placeholder.jpg';
 import projectEndurance from '../assets/projects/endurance.webp';
+import projectWrc from '../assets/projects/wrc-generations.webp';
 
 export const links = {
   email: 'lucasbonnard91@gmail.com',
@@ -69,10 +70,10 @@ export const career = [
 const placeholderText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque condimentum ligula et justo accumsan';
 
-const placeholders = Array.from({ length: 5 }, (_, i) => ({
-  title: `Project ${i + 2}`,
+const placeholders = Array.from({ length: 4 }, (_, i) => ({
+  title: `Project ${i + 3}`,
   image: projectPlaceholder,
-  alt: `Project ${i + 2} preview`,
+  alt: `Project ${i + 3} preview`,
   text: placeholderText,
   href: '#',
 }));
@@ -84,6 +85,13 @@ export const projects = [
     alt: 'In-game racing interface of an endurance prototype on track, shown on a monitor in a race team garage',
     text: 'A racing simulation game built around endurance racing and the 24 Hours of Le Mans. Coming soon to PS5, Xbox and PC.',
     href: '',
+  },
+  {
+    title: 'WRC Generations',
+    image: projectWrc,
+    alt: 'Career mode team headquarters screen of WRC Generations, shown on a TV in a living room with a sim racing cockpit',
+    text: 'Official game for the World Rally Championship. Available for PS5, Xbox, PC and Switch.',
+    href: 'https://www.behance.net/gallery/193701395/WRC-Generations-User-Interface',
   },
   ...placeholders,
 ];

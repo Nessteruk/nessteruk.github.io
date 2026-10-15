@@ -74,4 +74,4 @@
 - LinkedIn garde l'aperçu en cache : après une modification de l'image, forcer la mise à jour avec le LinkedIn Post Inspector.
 
 ## Works
-- Chaque projet a un titre, un texte et un lien. Sans lien (`href` vide), le bouton devient un « Coming soon… » statique : pas de balayage au survol, pas de curseur de survol ni de curseur texte, texte non sélectionnable (`data-cursor-ignore`).
+- Chaque projet a un titre, un texte et un lien (projets dans `src/data/content.ts`, images dans `src/assets/projects/`). Un lien externe (Behance…) s'ouvre dans un nouvel onglet. Sans lien (`href` vide), le bouton devient un « Coming soon… » statique : pas de balayage au survol, pas de curseur de survol ni de curseur texte, texte non sélectionnable (`data-cursor-ignore`).

@@ -35,7 +35,13 @@ import { projects } from '../../data/content';
                     <h3 class="work-card__title">{project.title}</h3>
                     <p class="work-card__text">{project.text}</p>
                   </div>
-                  {project.href ? <Button href={project.href}>Discover the work</Button> : <Button>Coming soon…</Button>}
+                  {project.href ? (
+                    <Button href={project.href} external={project.href.startsWith('http')}>
+                      Discover the work
+                    </Button>
+                  ) : (
+                    <Button>Coming soon…</Button>
+                  )}
                 </div>
               </article>
             ))
