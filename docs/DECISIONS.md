@@ -74,3 +74,8 @@
 
 ## Works
 - Chaque projet a un titre, un texte et un lien (projets dans `src/data/content.ts`, images dans `src/assets/projects/`). Un lien externe (Behance…) s'ouvre dans un nouvel onglet. Sans lien (`href` vide), le bouton devient un « Coming soon… » statique : pas de balayage au survol, pas de curseur de survol ni de curseur texte, texte non sélectionnable (`data-cursor-ignore`).
+
+## Favicon
+- `public/favicon.svg` : rond jaune et « LB » de la maquette Figma (le fond gris foncé ajouté par l'export Figma est retiré, coins transparents).
+- `public/favicon.ico` (16, 32 et 48 px) pour les anciens navigateurs, généré à partir du SVG.
+- `public/apple-touch-icon.png` (180 × 180) : carré jaune plein avec « LB », sans transparence ; iOS arrondit lui-même les coins.
