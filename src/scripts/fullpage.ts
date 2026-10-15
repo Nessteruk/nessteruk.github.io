@@ -9,6 +9,8 @@ type Direction = 1 | -1;
 const SHEET_DURATION = 0.6;
 const SHEET_EASE = 'power3.inOut';
 const SHEET_OFFSET = 30;
+const THEME_SWITCH_DOWN = 0.33;
+const THEME_SWITCH_UP = 0.12;
 const COOLDOWN = 0.35;
 const INNER_SCROLL_GRACE = 500;
 const TYPING_SPEED = 0.045;
@@ -191,7 +193,7 @@ export function initFullpage() {
       tl.to(from, { yPercent: 100 }).to(to, { yPercent: 0 }, 0);
     }
 
-    tl.call(() => applyTheme(to), undefined, SHEET_DURATION * (direction === 1 ? 0.8 : 0.2));
+    tl.call(() => applyTheme(to), undefined, direction === 1 ? THEME_SWITCH_DOWN : THEME_SWITCH_UP);
     reveal(to, direction, SHEET_DURATION * 0.35);
   }
 
