@@ -10,6 +10,9 @@
 - Les textes courants ont un plancher (`max(15px, …)`) pour rester lisibles sur les petits écrans d'ordinateur.
 - En dessous de 1100 px, c'est la maquette mobile qui s'applique.
 
+## Décor latéral
+- Le décor en haut à droite est placé sous le header avec un écart d'au moins 20 px (20 px en 1920, comme la maquette) : sur les petits écrans, le header garde une hauteur minimale de 56 px et le décor ne le touche plus.
+
 ## Thèmes de section
 - Chaque section porte `data-theme` : `light` (fond crème), `accent` (fond jaune), `dark` (fond bleu nuit).
 - L'en-tête et le décor fixes reçoivent le thème de la section active. Les composants utilisent `--fg` / `--bg` / `--mark` / `--on-fg` plutôt que des couleurs en dur : un même bouton s'adapte au fond.
