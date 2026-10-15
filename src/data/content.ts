@@ -60,7 +60,7 @@ export const moreSkills = [
 export const career = [
   { title: 'Master’s Degree in Interaction and Experience', desc: '2021, Toulon (France)' },
   { title: 'Art Director at Smash Essonne', desc: 'From 2014 to 2023, Smash Essonne (Association)' },
-  { title: 'UI/UX Designer at Moonrise', desc: '2018, Work-study Program, Paris (France)' },
+  { title: 'UI/UX Designer at Moonrise', desc: 'From 2018 to 2019, Work-study Program, Paris (France)' },
   { title: 'UI/UX Designer at Sportunity', desc: '2019, Internship, Massy (France)' },
   { title: 'UI Artist at Kylotonn', desc: 'From 2021 to 2026, video game industry, Paris (France)' },
 ];
