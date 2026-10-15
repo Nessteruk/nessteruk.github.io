@@ -209,8 +209,8 @@ export function initFullpage() {
 
   window.addEventListener('keydown', (event) => {
     if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
-    const target = event.target as HTMLElement;
-    if (target.closest('input, textarea, select, [contenteditable]')) return;
+    const target = event.target instanceof Element ? event.target : null;
+    if (target?.closest('input, textarea, select, [contenteditable]')) return;
 
     const keys: Record<string, () => void> = {
       ArrowDown: () => step(1),
@@ -223,7 +223,7 @@ export function initFullpage() {
     };
     const action = keys[event.key];
     if (!action) return;
-    if (event.key === ' ' && target.closest('button, a')) return;
+    if (event.key === ' ' && target?.closest('button, a')) return;
 
     const scrollable = canScrollInside(event.key === 'ArrowUp' || event.key === 'PageUp' || (event.key === ' ' && event.shiftKey) ? -1 : 1);
     if (scrollable && event.key !== 'Home' && event.key !== 'End') return;

@@ -10,7 +10,7 @@ const { title, body, number, mobile = true } = Astro.props;
 ---
 
 <article class:list={['text-card', { 'text-card--desktop-only': !mobile }]} data-reveal="1">
-  {number && <span class="text-card__number" aria-hidden="true" style="--tilt-depth: -0.3" data-tilt-depth>{number}</span>}
+  {number && <span class="text-card__number" aria-hidden="true">{number}</span>}
   <h3 class="text-card__title">{title}</h3>
   <p class="text-card__body">{body}</p>
 </article>

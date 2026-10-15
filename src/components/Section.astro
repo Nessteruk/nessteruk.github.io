@@ -14,9 +14,7 @@ const { id, theme, label, active = false, reveal = 'default' } = Astro.props;
 
 <section class:list={['section', { 'is-active': active }]} id={id} data-section data-theme={theme} data-reveal-style={reveal} aria-label={label}>
   <div class="section__inner">
-    <div class="section__tilt" data-tilt>
-      <slot />
-    </div>
+    <slot />
   </div>
 </section>
 
@@ -33,16 +31,6 @@ const { id, theme, label, active = false, reveal = 'default' } = Astro.props;
     position: relative;
     height: 100%;
     min-height: 100svh;
-  }
-
-  .section__tilt {
-    height: 100%;
-  }
-
-  @media (min-width: 1100px) {
-    .section__tilt {
-      will-change: transform;
-    }
   }
 
   :global(.js) .section {

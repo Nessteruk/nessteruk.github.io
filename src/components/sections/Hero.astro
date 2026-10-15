@@ -11,7 +11,7 @@ const lead = 'Hey ! I’m a';
 <Section id="home" theme="light" label="Introduction" active reveal="subtle">
   <div class="hero">
     <div class="hero__picture" data-reveal="3">
-      <Image src={illustration} alt="Illustrated portrait of Lucas Bonnard" widths={[460, 919]} sizes="43vw" loading="eager" style="--tilt-depth: 0.4" data-tilt-depth />
+      <Image src={illustration} alt="Illustrated portrait of Lucas Bonnard" widths={[460, 919]} sizes="43vw" loading="eager" />
     </div>
     <div class="hero__text">
       <p class="hero__intro" data-intro data-roles={JSON.stringify(roles)}>
@@ -90,15 +90,12 @@ const lead = 'Hey ! I’m a';
     text-transform: uppercase;
   }
 
-  .hero__desc {
-    padding-inline: 8px;
-  }
-
   .hero__name span {
     display: block;
   }
 
   .hero__desc {
+    padding-inline: 8px;
     font-size: 16px;
     line-height: 28px;
   }
