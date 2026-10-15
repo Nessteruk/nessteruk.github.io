@@ -72,3 +72,6 @@
 - Image de partage : `public/og-image.jpg`, 1200 × 630, export JPG de la frame Figma. Composition centrée : elle reste lisible dans le recadrage carré de WhatsApp et iMessage.
 - Balises `og:*` et `twitter:card` dans `src/layouts/Base.astro`, avec des URL absolues construites depuis `site` (`astro.config.mjs`) : les plateformes refusent les chemins relatifs.
 - LinkedIn garde l'aperçu en cache : après une modification de l'image, forcer la mise à jour avec le LinkedIn Post Inspector.
+
+## Works
+- Chaque projet a un titre, un texte et un lien. Sans lien (`href` vide), le bouton devient un « Coming soon… » statique : pas de balayage au survol, pas de curseur de survol ni de curseur texte, texte non sélectionnable (`data-cursor-ignore`).

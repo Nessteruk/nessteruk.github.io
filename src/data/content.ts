@@ -79,11 +79,11 @@ const placeholders = Array.from({ length: 5 }, (_, i) => ({
 
 export const projects = [
   {
-    title: 'Endurance racing game',
+    title: 'Endurance Motorsport Series',
     image: projectEndurance,
     alt: 'In-game racing interface of an endurance prototype on track, shown on a monitor in a race team garage',
     text: 'A racing simulation game built around endurance racing and the 24 Hours of Le Mans. Coming soon to PS5, Xbox and PC.',
-    href: '#',
+    href: '',
   },
   ...placeholders,
 ];

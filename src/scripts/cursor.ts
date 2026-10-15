@@ -16,7 +16,8 @@ function isOverText(x: number, y: number) {
   const caret = caretAt(x, y);
   if (!caret || caret.node.nodeType !== Node.TEXT_NODE) return false;
   const text = caret.node as Text;
-  if (!text.parentElement?.closest(TEXT_TARGETS)) return false;
+  const parent = text.parentElement;
+  if (!parent?.closest(TEXT_TARGETS) || parent.closest('[data-cursor-ignore]')) return false;
 
   const range = document.createRange();
   range.setStart(text, Math.max(0, caret.offset - 1));

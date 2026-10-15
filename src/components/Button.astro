@@ -2,17 +2,27 @@
 import ArrowUpRight from '../icons/arrow-up-right.svg';
 
 interface Props {
-  href: string;
+  href?: string;
   external?: boolean;
 }
 
 const { href, external = false } = Astro.props;
 ---
 
-<a class="btn" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
-  <span><slot /></span>
-  <ArrowUpRight class="btn__icon" aria-hidden="true" />
-</a>
+{
+  href ? (
+    <a class="btn" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+      <span>
+        <slot />
+      </span>
+      <ArrowUpRight class="btn__icon" aria-hidden="true" />
+    </a>
+  ) : (
+    <span class="btn btn--static" data-cursor-ignore>
+      <slot />
+    </span>
+  )
+}
 
 <style>
   .btn {
@@ -33,12 +43,16 @@ const { href, external = false } = Astro.props;
       color 0.45s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
+  .btn--static {
+    user-select: none;
+  }
+
   .btn__icon {
     width: 14px;
     height: 14px;
   }
 
-  .btn:hover {
+  a.btn:hover {
     background-size: 100% 100%;
     color: var(--on-fg);
   }
