@@ -16,7 +16,7 @@
 - Survol du bouton « Download CV » sur fond sombre : la maquette prévoyait un fond bleu nuit (invisible sur la section Work) ; remplacé par un fond jaune.
 
 ## Défilement
-- Défilement forcé section par section (molette, swipe, clavier, liens du menu). La nouvelle section glisse par-dessus l'ancienne en 0,8 s (power3.inOut) ; l'ancienne recule de 30 % (parallaxe).
+- Défilement forcé section par section (molette, swipe, clavier, liens du menu). La nouvelle section glisse par-dessus l'ancienne en 0,6 s (power3.inOut) ; l'ancienne recule de 30 % (parallaxe).
 - Le header a un fond opaque (couleur du thème) pour que le contenu en transition ne passe jamais visuellement dessous.
 - Accueil et Contact : tous les textes ont la même profondeur de parallaxe pour ne jamais se chevaucher ; seule l'illustration a un décalage plus fort.
 - Carrousel mobile : un swipe horizontal bloque le changement de section le temps du geste.
@@ -33,3 +33,4 @@
 ## Contenus
 - Sur mobile, la carte PRINT et les numéros 01-02-03 sont volontairement absents (confirmé par Ness).
 - Les projets du carrousel sont des contenus provisoires (`src/data/content.ts`).
+- Carrousel : l'image et le texte glissent chacun à l'intérieur de leur propre cadre (masqués), pour ne jamais se chevaucher.

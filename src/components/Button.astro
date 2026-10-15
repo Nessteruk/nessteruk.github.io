@@ -36,16 +36,11 @@ const { href, external = false } = Astro.props;
   .btn__icon {
     width: 14px;
     height: 14px;
-    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
   .btn:hover {
     background-size: 100% 100%;
     color: var(--on-fg);
-  }
-
-  .btn:hover .btn__icon {
-    transform: translate(2px, -2px);
   }
 
   @media (min-width: 1100px) {

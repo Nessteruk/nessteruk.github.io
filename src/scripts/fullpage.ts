@@ -5,7 +5,7 @@ gsap.registerPlugin(Observer);
 
 type Direction = 1 | -1;
 
-const SHEET_DURATION = 0.8;
+const SHEET_DURATION = 0.6;
 const SHEET_EASE = 'power3.inOut';
 const SHEET_OFFSET = 30;
 const COOLDOWN = 0.35;

@@ -31,10 +31,8 @@ function setupCarousel(root: HTMLElement) {
     to.inert = false;
     to.classList.add('is-active');
 
-    const parts = (slide: HTMLElement) => [
-      slide.querySelector('[data-slide-media]'),
-      slide.querySelector('[data-slide-infos]'),
-    ];
+    const parts = (slide: HTMLElement) =>
+      gsap.utils.toArray<HTMLElement>(slide.querySelectorAll('[data-slide-media] img, [data-slide-infos] > *'));
 
     if (reduceMotion.matches) {
       from.classList.remove('is-active');
@@ -43,18 +41,18 @@ function setupCarousel(root: HTMLElement) {
 
     animation = gsap
       .timeline({
-        defaults: { duration: 0.75, ease: 'expo.inOut' },
+        defaults: { duration: 0.55, ease: 'power3.inOut' },
         onComplete: () => {
           from.classList.remove('is-active');
           gsap.set([...parts(from), ...parts(to)], { clearProps: 'all' });
         },
       })
-      .to(parts(from), { x: -direction * 120, opacity: 0, stagger: 0.06 })
+      .to(parts(from), { xPercent: -direction * 40, opacity: 0, stagger: 0.04 })
       .fromTo(
         parts(to),
-        { x: (i: number) => direction * (180 + i * 80), opacity: 0 },
-        { x: 0, opacity: 1, stagger: 0.08, ease: 'expo.out', duration: 1 },
-        0.3,
+        { xPercent: direction * 40, opacity: 0 },
+        { xPercent: 0, opacity: 1, stagger: 0.06, ease: 'power3.out', duration: 0.7 },
+        0.2,
       );
   }
 
