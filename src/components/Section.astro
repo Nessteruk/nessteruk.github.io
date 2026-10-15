@@ -50,6 +50,9 @@ const { id, theme, label, active = false, reveal = 'default' } = Astro.props;
     inset: 0;
     min-height: 0;
     visibility: hidden;
+  }
+
+  :global(.js) .section.has-shadow {
     box-shadow: 0 0 80px rgb(17 47 65 / 0.25);
   }
 

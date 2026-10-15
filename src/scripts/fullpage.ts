@@ -154,7 +154,11 @@ export function initFullpage() {
     inner(to).scrollTop = direction === 1 ? 0 : inner(to).scrollHeight;
     history.replaceState(null, '', `#${to.id}`);
 
+    const sheet = direction === 1 ? to : from;
+    sheet.classList.toggle('has-shadow', from.dataset.theme !== to.dataset.theme);
+
     const finish = () => {
+      sheet.classList.remove('has-shadow');
       from.classList.remove('is-active');
       gsap.set([from, to], { clearProps: 'transform,zIndex' });
       gsap.delayedCall(reduceMotion.matches ? 0 : COOLDOWN, () => (locked = false));
