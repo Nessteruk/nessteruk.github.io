@@ -49,7 +49,7 @@ export function initFullpage() {
 
   function canScrollInside(direction: Direction) {
     const el = inner(sections[current]);
-    if (el.scrollHeight - el.clientHeight < 2) return false;
+    if (getComputedStyle(el).overflowY !== 'auto' || el.scrollHeight - el.clientHeight < 2) return false;
     return direction === 1 ? el.scrollTop + el.clientHeight < el.scrollHeight - 2 : el.scrollTop > 2;
   }
 

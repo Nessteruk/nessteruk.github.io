@@ -55,4 +55,5 @@
 - La couche `[data-tilt]` de chaque section se décale vers la souris (10 px max) : texte tapé et contenu bougent comme un seul bloc ; header, décorations latérales et fond restent fixes.
 - L'effet n'est jamais appliqué aux éléments animés par GSAP : pendant une animation, GSAP réécrit la propriété `translate` des éléments qu'il anime, ce qui figeait l'effet. Il continue donc de fonctionner pendant les transitions, la saisie et les apparitions.
 - Parallaxe légère, uniquement sur des éléments non animés (`data-tilt-depth`) : l'illustration +0,4 et les grands numéros de Skills −0,3, par rapport au bloc.
+- Sur desktop, les sections ne défilent jamais en interne (le contenu tient toujours à l'écran grâce à la mise à l'échelle) : la découpe se fait sur le bord fixe de la section et non sur la couche qui bouge, pour que les illustrations qui débordent de l'écran ne paraissent jamais coupées.
 - Suivi amorti (lissage 0,06 par image) et retour au neutre quand la souris quitte la fenêtre. La boucle d'animation s'arrête une fois l'effet au repos.
