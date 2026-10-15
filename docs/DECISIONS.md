@@ -13,7 +13,8 @@
 ## Thèmes de section
 - Chaque section porte `data-theme` : `light` (fond crème), `accent` (fond jaune), `dark` (fond bleu nuit).
 - L'en-tête et le décor fixes reçoivent le thème de la section active. Les composants utilisent `--fg` / `--bg` / `--mark` / `--on-fg` plutôt que des couleurs en dur : un même bouton s'adapte au fond.
-- Survol du bouton « Download CV » sur fond sombre : la maquette prévoyait un fond bleu nuit (invisible sur la section Work) ; remplacé par un fond jaune.
+- Survol du bouton « Download CV » : fond bleu nuit et texte jaune sur les fonds crème et jaune, fond jaune et texte bleu nuit sur le fond sombre (la maquette prévoyait du bleu nuit, invisible sur la section Work).
+- Les éléments du header prennent leur couleur directement de la variable du thème (et non par héritage) : sinon une transition héritée s'ajoute à la leur et le changement de couleur arrive en retard.
 
 ## Défilement
 - Défilement forcé section par section (molette, swipe, clavier, liens du menu). La nouvelle section glisse par-dessus l'ancienne en 0,6 s (power3.inOut) ; l'ancienne recule de 30 % (parallaxe).

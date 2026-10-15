@@ -25,8 +25,8 @@
   --fg: var(--color-tertiary);
   --mark: var(--color-main);
   --on-fg: var(--color-main);
-  --cv-bg: var(--color-main);
-  --cv-fg: var(--color-tertiary);
+  --cv-bg: var(--color-tertiary);
+  --cv-fg: var(--color-main);
 }
 
 [data-theme='accent'] {
