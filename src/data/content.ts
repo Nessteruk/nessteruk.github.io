@@ -2,6 +2,7 @@ import projectPlaceholder from '../assets/project-placeholder.jpg';
 import projectEndurance from '../assets/projects/endurance.webp';
 import projectWrc from '../assets/projects/wrc-generations.webp';
 import projectSportunity from '../assets/projects/sportunity.webp';
+import projectVidz from '../assets/projects/vidz.webp';
 
 export const links = {
   email: 'lucasbonnard91@gmail.com',
@@ -71,10 +72,10 @@ export const career = [
 const placeholderText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque condimentum ligula et justo accumsan';
 
-const placeholders = Array.from({ length: 3 }, (_, i) => ({
-  title: `Project ${i + 4}`,
+const placeholders = Array.from({ length: 2 }, (_, i) => ({
+  title: `Project ${i + 5}`,
   image: projectPlaceholder,
-  alt: `Project ${i + 4} preview`,
+  alt: `Project ${i + 5} preview`,
   text: placeholderText,
   href: '#',
 }));
@@ -100,6 +101,13 @@ export const projects = [
     alt: 'Sportunity landing page with its mobile app preview, shown on a desktop computer at a gym reception desk',
     text: 'A landing page for a mobile sports app.',
     href: 'https://www.behance.net/gallery/105327843/Site-vitrine-Sportunity',
+  },
+  {
+    title: 'Vidz',
+    image: projectVidz,
+    alt: 'Vidz music video player interface, shown on a laptop on a DJ booth at a music festival',
+    text: 'A community network for music videos.',
+    href: 'https://www.behance.net/gallery/89732155/VIDZ-Application-de-vidos-musicales',
   },
   ...placeholders,
 ];
