@@ -67,3 +67,8 @@
 - Couleurs : bleu nuit sur les fonds crème et jaune, jaune sur le fond bleu nuit. Le curseur est en `mix-blend-mode: difference` avec une couleur calculée par thème (`--cursor-mix`) pour donner exactement la couleur voulue sur le fond de la section ; au-dessus d'un élément d'une autre couleur (texte, surlignage, illustration), il passe en négatif et reste visible.
 - Activé seulement avec une souris (`hover: hover` et `pointer: fine`) ; sur écran tactile, rien ne change. Le curseur système est masqué uniquement quand le curseur personnalisé est actif.
 - Position arrondie au pixel pour garder le cercle fin net.
+
+## Partage (Open Graph)
+- Image de partage : `public/og-image.jpg`, 1200 × 630, export JPG de la frame Figma. Composition centrée : elle reste lisible dans le recadrage carré de WhatsApp et iMessage.
+- Balises `og:*` et `twitter:card` dans `src/layouts/Base.astro`, avec des URL absolues construites depuis `site` (`astro.config.mjs`) : les plateformes refusent les chemins relatifs.
+- LinkedIn garde l'aperçu en cache : après une modification de l'image, forcer la mise à jour avec le LinkedIn Post Inspector.
