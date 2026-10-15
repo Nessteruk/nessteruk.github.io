@@ -34,3 +34,4 @@
 - Sur mobile, la carte PRINT et les numéros 01-02-03 sont volontairement absents (confirmé par Ness).
 - Les projets du carrousel sont des contenus provisoires (`src/data/content.ts`).
 - Carrousel : l'image et le texte glissent chacun à l'intérieur de leur propre cadre (masqués), pour ne jamais se chevaucher.
+- Sections avec texte tapé : le contenu est centré verticalement entre le texte tapé et le bas de l'écran (espace identique au-dessus et au-dessous), sur desktop comme sur mobile.
