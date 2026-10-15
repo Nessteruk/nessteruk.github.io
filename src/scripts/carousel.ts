@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 
 const SWIPE_THRESHOLD = 40;
 const AXIS_THRESHOLD = 8;
+const TEXT_SHIFT = 30;
 
 export function initCarousels() {
   document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(setupCarousel);
@@ -31,8 +32,9 @@ function setupCarousel(root: HTMLElement) {
     to.inert = false;
     to.classList.add('is-active');
 
-    const parts = (slide: HTMLElement) =>
-      gsap.utils.toArray<HTMLElement>(slide.querySelectorAll('[data-slide-media] img, [data-slide-infos] > *'));
+    const media = (slide: HTMLElement) => slide.querySelector<HTMLElement>('[data-slide-media] img');
+    const infos = (slide: HTMLElement) => gsap.utils.toArray<HTMLElement>(slide.querySelectorAll('[data-slide-infos] > *'));
+    const parts = (slide: HTMLElement) => [media(slide), ...infos(slide)];
 
     if (reduceMotion.matches) {
       from.classList.remove('is-active');
@@ -47,12 +49,19 @@ function setupCarousel(root: HTMLElement) {
           gsap.set([...parts(from), ...parts(to)], { clearProps: 'all' });
         },
       })
-      .to(parts(from), { xPercent: -direction * 40, opacity: 0, stagger: 0.04 })
+      .to(media(from), { xPercent: -direction * 40, opacity: 0 })
+      .to(infos(from), { x: -direction * TEXT_SHIFT, opacity: 0, stagger: 0.04 }, 0)
       .fromTo(
-        parts(to),
+        media(to),
         { xPercent: direction * 40, opacity: 0 },
-        { xPercent: 0, opacity: 1, stagger: 0.06, ease: 'power3.out', duration: 0.7 },
+        { xPercent: 0, opacity: 1, ease: 'power3.out', duration: 0.7 },
         0.2,
+      )
+      .fromTo(
+        infos(to),
+        { x: direction * TEXT_SHIFT, opacity: 0 },
+        { x: 0, opacity: 1, stagger: 0.06, ease: 'power3.out', duration: 0.7 },
+        0.26,
       );
   }
 
