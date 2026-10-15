@@ -51,6 +51,7 @@
 
 ## Effet 3D à la souris
 - Desktop avec souris uniquement (`hover: hover` et `pointer: fine`, ≥ 1100 px), désactivé si `prefers-reduced-motion`.
-- Chaque section a une couche `[data-tilt]` qui s'incline vers la souris (2° max) ; le header, le décor et le fond restent fixes.
-- Parallaxe : les éléments `data-reveal` se décalent de 10 px max × leur profondeur (1 ; 1,5 ; 2 pour l'illustration). Les grands numéros de Skills bougent moins que leur titre. Le décalage utilise la propriété CSS `translate`, distincte du `transform` animé par GSAP : aucun conflit avec les apparitions.
+- La couche `[data-tilt]` de chaque section et le décor latéral reçoivent la même transformation (perspective 1800 px, décalage de 10 px max, inclinaison de 2° max) : texte tapé, contenu et décorations bougent comme un seul bloc ; header et fond restent fixes.
+- L'effet n'est jamais appliqué aux éléments animés par GSAP : pendant une animation, GSAP réécrit la propriété `translate` des éléments qu'il anime, ce qui figeait l'effet. Il continue donc de fonctionner pendant les transitions, la saisie et les apparitions.
+- Parallaxe légère, uniquement sur des éléments non animés (`data-tilt-depth`) : l'illustration +0,4 et les grands numéros de Skills −0,3, par rapport au bloc.
 - Suivi amorti (lissage 0,06 par image) et retour au neutre quand la souris quitte la fenêtre. La boucle d'animation s'arrête une fois l'effet au repos.
