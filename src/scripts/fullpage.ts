@@ -5,9 +5,10 @@ gsap.registerPlugin(Observer);
 
 type Direction = 1 | -1;
 
-const SHEET_DURATION = 1.1;
+const SHEET_DURATION = 0.8;
+const SHEET_EASE = 'power3.inOut';
 const SHEET_OFFSET = 30;
-const COOLDOWN = 0.45;
+const COOLDOWN = 0.35;
 const INNER_SCROLL_GRACE = 500;
 const TYPING_SPEED = 0.045;
 
@@ -154,7 +155,7 @@ export function initFullpage() {
     }
 
     const tl = gsap.timeline({
-      defaults: { duration: SHEET_DURATION, ease: 'expo.inOut' },
+      defaults: { duration: SHEET_DURATION, ease: SHEET_EASE },
       onComplete: finish,
     });
 
@@ -173,7 +174,8 @@ export function initFullpage() {
   }
 
   function step(direction: Direction) {
-    if (document.documentElement.classList.contains('menu-open')) return;
+    const root = document.documentElement;
+    if (root.classList.contains('menu-open') || root.classList.contains('is-swiping')) return;
     if (canScrollInside(direction) || performance.now() - lastInnerScroll < INNER_SCROLL_GRACE) return;
     goTo(current + direction);
   }
@@ -183,6 +185,7 @@ export function initFullpage() {
     type: 'wheel,touch',
     wheelSpeed: -1,
     tolerance: 10,
+    lockAxis: true,
     onUp: () => step(1),
     onDown: () => step(-1),
   });

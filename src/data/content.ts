@@ -11,9 +11,9 @@ export type Theme = 'light' | 'accent' | 'dark';
 
 export const nav = [
   { label: 'Home', target: 'home', group: ['home'] },
-  { label: 'Skill', target: 'skills', group: ['skills', 'more'] },
+  { label: 'Skills', target: 'skills', group: ['skills', 'more'] },
   { label: 'Career', target: 'career', group: ['career'] },
-  { label: 'Work', target: 'work', group: ['work'] },
+  { label: 'Works', target: 'work', group: ['work'] },
   { label: 'Contact', target: 'contact', group: ['contact'] },
 ];
 

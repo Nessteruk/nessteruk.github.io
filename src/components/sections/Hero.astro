@@ -13,9 +13,9 @@ import illustration from '../../assets/illustration.png';
     <div class="hero__text">
       <p class="hero__intro" data-reveal="1">
         <span>Hey ! I’m a</span>
-        <HighlightText>UI/UX Designer</HighlightText>
+        <HighlightText size="lg">UI/UX Designer</HighlightText>
       </p>
-      <h1 class="hero__name" data-reveal="2"><span>Lucas</span> <span>Bonnard</span></h1>
+      <h1 class="hero__name" data-reveal="1"><span>Lucas</span> <span>Bonnard</span></h1>
       <p class="hero__desc" data-reveal="1">
         Based in Paris, I have 5 years of experience in the video game industry and 2 years in product design.
       </p>
@@ -41,10 +41,8 @@ import illustration from '../../assets/illustration.png';
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 28px;
     max-width: 354px;
-    padding-inline: 32px;
-    box-sizing: content-box;
     text-align: center;
   }
 
@@ -52,17 +50,21 @@ import illustration from '../../assets/illustration.png';
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: clamp(18px, 5.6vw, 22px);
+    line-height: 1.3;
     white-space: nowrap;
   }
 
   .hero__name {
-    font-size: 56px;
+    font-size: clamp(48px, 17vw, 72px);
     font-weight: 700;
-    line-height: 58px;
+    line-height: 1;
     letter-spacing: -1.5px;
     text-transform: uppercase;
+  }
+
+  .hero__desc {
+    padding-inline: 8px;
   }
 
   .hero__name span {
@@ -102,7 +104,7 @@ import illustration from '../../assets/illustration.png';
       position: relative;
       max-width: none;
       padding: 0;
-      gap: calc(20 * var(--u));
+      gap: calc(40 * var(--u));
     }
 
     .hero__intro {
@@ -113,7 +115,7 @@ import illustration from '../../assets/illustration.png';
 
     .hero__name {
       font-size: calc(200 * var(--u));
-      line-height: 0.8082;
+      line-height: 0.92;
       letter-spacing: 0;
     }
 

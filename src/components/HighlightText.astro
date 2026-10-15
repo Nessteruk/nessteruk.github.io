@@ -1,13 +1,14 @@
 ---
 interface Props {
   href?: string;
+  size?: 'md' | 'lg';
 }
 
-const { href } = Astro.props;
+const { href, size = 'md' } = Astro.props;
 const Tag = href ? 'a' : 'span';
 ---
 
-<Tag class="highlight" href={href}><slot /></Tag>
+<Tag class:list={['highlight', `highlight--${size}`]} href={href}><slot /></Tag>
 
 <style>
   .highlight {
@@ -18,6 +19,12 @@ const Tag = href ? 'a' : 'span';
     white-space: nowrap;
     color: var(--color-tertiary);
     background: linear-gradient(var(--color-main), var(--color-main)) left bottom / 100% 12px no-repeat;
+  }
+
+  .highlight--lg {
+    font-size: clamp(18px, 5.6vw, 22px);
+    line-height: 1.3;
+    background-size: 100% 0.6em;
   }
 
   a.highlight {

@@ -9,10 +9,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <header class="header" data-theme="light" data-follow-theme>
   <div class="header__networks">
-    <a class="header__icon" href={links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <a class="header__icon header__icon--linkedin" href={links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
       <Linkedin aria-hidden="true" />
     </a>
-    <a class="header__icon" href={links.behance} target="_blank" rel="noopener noreferrer" aria-label="Behance">
+    <a class="header__icon header__icon--behance" href={links.behance} target="_blank" rel="noopener noreferrer" aria-label="Behance">
       <Behance aria-hidden="true" />
     </a>
   </div>
@@ -40,10 +40,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     height: var(--header-height);
     padding: 12px 24px 12px 20px;
     color: var(--fg);
+    background: var(--bg);
     border-bottom: var(--stroke-md) solid var(--fg);
     transition:
-      color 0.4s ease,
-      border-color 0.4s ease;
+      color 0.3s ease,
+      background-color 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .header__networks,
@@ -101,19 +103,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       place-items: center;
       width: max(24px, calc(32 * var(--u)));
       height: max(24px, calc(32 * var(--u)));
-      transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+      transition: opacity 0.3s ease;
     }
 
     .header__icon :global(svg) {
-      width: auto;
-      height: max(14px, calc(19.5 * var(--u)));
+      overflow: visible;
+    }
+
+    .header__icon--linkedin :global(svg) {
+      width: max(15px, calc(19.5 * var(--u)));
+      height: max(15px, calc(19.5 * var(--u)));
+    }
+
+    .header__icon--behance :global(svg) {
+      width: max(21px, calc(27 * var(--u)));
+      height: max(13.5px, calc(17.5 * var(--u)));
     }
 
     .header__icon:hover {
-      opacity: 0.7;
-      transform: translateY(-2px);
+      opacity: 0.6;
     }
 
     .header__nav {
@@ -133,14 +141,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       font-size: max(15px, calc(20 * var(--u)));
       line-height: max(24px, calc(32 * var(--u)));
       border-left: var(--stroke-md) solid var(--fg);
+      background: linear-gradient(var(--cv-bg), var(--cv-bg)) left center / 0% 100% no-repeat;
       transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
+        background-size 0.45s cubic-bezier(0.65, 0, 0.35, 1),
+        color 0.45s cubic-bezier(0.65, 0, 0.35, 1),
         border-color 0.4s ease;
     }
 
     .header__cv:hover {
-      background: var(--cv-bg);
+      background-size: 100% 100%;
       color: var(--cv-fg);
     }
   }

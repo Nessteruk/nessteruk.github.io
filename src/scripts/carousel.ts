@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 
 const SWIPE_THRESHOLD = 40;
+const AXIS_THRESHOLD = 8;
 
 export function initCarousels() {
   document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(setupCarousel);
@@ -61,25 +62,48 @@ function setupCarousel(root: HTMLElement) {
   root.querySelector('[data-carousel-next]')?.addEventListener('click', () => show(index + 1, 1));
   dots.forEach((dot, i) => dot.addEventListener('click', () => show(i, i > index ? 1 : -1)));
 
+  const html = document.documentElement;
   let startX = 0;
   let startY = 0;
   let tracking = false;
+  let axis: 'x' | 'y' | null = null;
+  let release = 0;
+
+  function endGesture() {
+    tracking = false;
+    axis = null;
+    window.clearTimeout(release);
+    release = window.setTimeout(() => html.classList.remove('is-swiping'), 350);
+  }
 
   viewport.addEventListener('pointerdown', (event) => {
     if (event.pointerType === 'mouse') return;
     tracking = true;
+    axis = null;
     startX = event.clientX;
     startY = event.clientY;
   });
 
+  viewport.addEventListener('pointermove', (event) => {
+    if (!tracking || axis) return;
+    const dx = Math.abs(event.clientX - startX);
+    const dy = Math.abs(event.clientY - startY);
+    if (Math.max(dx, dy) < AXIS_THRESHOLD) return;
+    axis = dx > dy ? 'x' : 'y';
+    if (axis === 'x') {
+      window.clearTimeout(release);
+      html.classList.add('is-swiping');
+    }
+  });
+
   viewport.addEventListener('pointerup', (event) => {
     if (!tracking) return;
-    tracking = false;
+    const horizontal = axis === 'x';
     const dx = event.clientX - startX;
-    const dy = event.clientY - startY;
-    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+    endGesture();
+    if (!horizontal || Math.abs(dx) < SWIPE_THRESHOLD) return;
     show(index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
   });
 
-  viewport.addEventListener('pointercancel', () => (tracking = false));
+  viewport.addEventListener('pointercancel', endGesture);
 }

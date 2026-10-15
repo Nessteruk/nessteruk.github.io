@@ -27,9 +27,10 @@ const { href, external = false } = Astro.props;
     color: var(--fg);
     border: var(--stroke-md) solid var(--fg);
     border-radius: 52px;
+    background: linear-gradient(var(--fg), var(--fg)) left center / 0% 100% no-repeat;
     transition:
-      background-color 0.35s ease,
-      color 0.35s ease;
+      background-size 0.45s cubic-bezier(0.65, 0, 0.35, 1),
+      color 0.45s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
   .btn__icon {
@@ -39,7 +40,7 @@ const { href, external = false } = Astro.props;
   }
 
   .btn:hover {
-    background: var(--fg);
+    background-size: 100% 100%;
     color: var(--on-fg);
   }
 
