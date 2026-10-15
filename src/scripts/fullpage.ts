@@ -47,9 +47,13 @@ export function initFullpage() {
     return section.querySelector<HTMLElement>('.section__inner') ?? section;
   }
 
+  function isScrollable(el: HTMLElement) {
+    return getComputedStyle(el).overflowY === 'auto' && el.scrollHeight - el.clientHeight >= 2;
+  }
+
   function canScrollInside(direction: Direction) {
     const el = inner(sections[current]);
-    if (getComputedStyle(el).overflowY !== 'auto' || el.scrollHeight - el.clientHeight < 2) return false;
+    if (!isScrollable(el)) return false;
     return direction === 1 ? el.scrollTop + el.clientHeight < el.scrollHeight - 2 : el.scrollTop > 2;
   }
 
@@ -151,7 +155,8 @@ export function initFullpage() {
     to.classList.add('is-active');
     to.inert = false;
     from.inert = true;
-    inner(to).scrollTop = direction === 1 ? 0 : inner(to).scrollHeight;
+    const toInner = inner(to);
+    toInner.scrollTop = direction === 1 || !isScrollable(toInner) ? 0 : toInner.scrollHeight;
     history.replaceState(null, '', `#${to.id}`);
 
     const sheet = direction === 1 ? to : from;

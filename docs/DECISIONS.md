@@ -30,7 +30,7 @@
 - Carrousel mobile : un swipe horizontal bloque le changement de section le temps du geste.
 - Survol des boutons : balayage du fond de gauche à droite, rétraction inverse en sortie.
 - Les éléments marqués `data-reveal="1|2|3"` apparaissent avec un décalage proportionnel à leur profondeur (90 px par niveau). L'accueil utilise une variante discrète (`reveal="subtle"` sur la section : 20 px par niveau, power3.out sur 1,1 s).
-- Si le contenu d'une section dépasse la hauteur de l'écran (petits téléphones), la section défile d'abord en interne avant de passer à la suivante.
+- Si le contenu d'une section dépasse la hauteur de l'écran (petits téléphones), la section défile d'abord en interne avant de passer à la suivante. En remontant vers une telle section, elle s'ouvre sur son bas ; les sections non défilables (toutes sur desktop) restent toujours en haut, sinon les illustrations qui débordent sous l'écran faisaient remonter le contenu.
 - L'URL reflète la section active (`#skills`, `#work`…) : un lien direct ouvre la bonne section.
 - `prefers-reduced-motion` : changements de section instantanés, pas d'effet machine à écrire.
 
