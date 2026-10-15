@@ -120,6 +120,16 @@ import { projects } from '../../data/content';
     pointer-events: none;
   }
 
+  @media (hover: hover) {
+    .work-card__media img {
+      transition: scale 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .work-card__media:hover img {
+      scale: 1.05;
+    }
+  }
+
   .work-card__infos {
     display: flex;
     flex-direction: column;

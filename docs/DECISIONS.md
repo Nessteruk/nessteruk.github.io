@@ -74,6 +74,7 @@
 - LinkedIn garde l'aperçu en cache : après une modification de l'image, forcer la mise à jour avec le LinkedIn Post Inspector.
 
 ## Works
+- Au survol de l'image d'un projet (appareils avec souris), l'image zoome légèrement (×1,05) à l'intérieur de son cadre, via la propriété CSS `scale` pour ne pas entrer en conflit avec le `transform` animé par le carrousel.
 - Chaque projet a un titre, un texte et un lien (projets dans `src/data/content.ts`, images dans `src/assets/projects/`). Un lien externe (Behance…) s'ouvre dans un nouvel onglet. Sans lien (`href` vide), le bouton devient un « Coming soon… » statique : pas de balayage au survol, pas de curseur de survol ni de curseur texte, texte non sélectionnable (`data-cursor-ignore`).
 
 ## Favicon
